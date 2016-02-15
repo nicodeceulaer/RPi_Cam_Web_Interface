@@ -25,6 +25,7 @@
    $options_mx = array('Internal' => '0', 'External' => '1');
    $options_mf = array('Off' => '0', 'On' => '1');
    $options_cn = array('First' => '1', 'Second' => '2');
+   $options_st = array('Off' => '0', 'On' => '1');
    
    function initCamPos() {
       $tr = fopen("pipan_bak.txt", "r");
@@ -308,6 +309,10 @@
                            </td>
                         </tr>
                         <tr>
+                           <td>Image Statistics, default 'Off':</td>
+                           <td><select onchange="send_cmd('st ' + this.value)"><?php makeOptions($options_st, 'stat_pass'); ?></select></td>
+                        </tr>
+                        <tr>
                            <td>Rotation, default 0:</td>
                            <td><select onchange="send_cmd('ro ' + this.value)"><?php makeOptions($options_ro, 'rotation'); ?></select></td>
                         </tr>
@@ -327,13 +332,13 @@
                            </td>
                         </tr>
                         <tr>
-                           <td>Image quality (0...100), default 85:</td>
+                           <td>Image quality (0...100), default 10:</td>
                            <td>
                               <?php makeInput('image_quality', 4); ?><input type="button" value="OK" onclick="send_cmd('qu ' + document.getElementById('image_quality').value)">
                            </td>
                         </tr>
                         <tr>
-                           <td>Preview quality (0...100) Default 25:<br>Width (128...1024) Default 512:<br>Divider (1-16) Default 1:</td>
+                           <td>Preview quality (1...100) Default 10:<br>Width (128...1024) Default 512:<br>Divider (1-16) Default 1:</td>
                            <td>
                               Qu: <?php makeInput('quality', 4); ?>
                               Wi: <?php makeInput('width', 4); ?>
