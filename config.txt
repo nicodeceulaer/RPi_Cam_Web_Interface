@@ -1,0 +1,11 @@
+#This is config file for main installer. Put any extra options in here.
+
+# Enable or disable debug for installer script
+debug="no"
+
+# Rpicam install directory
+rpicamdir="html"
+
+# Enable or disable autostart
+autostart="yes"
+
